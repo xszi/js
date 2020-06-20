@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p>haha</p>
+    <ul>
+        <li id="hello">hello world</li>
+        <li>bye world</li>
+    </ul>
+</div>
+<script>
+    var ul = document.querySelectorAll('ul');
+    console.log(ul);
+    var hello = document.getElementById('hello');//集合
+
+    var ul_child = ul.childNodes;
+
+//    var attr = hello.getAttribute('id');
+//    hello.setAttribute('class','haha');
+
+//    console.log(attr);
+
+//    var child = document.createElement('p');
+//    child.innerHTML = 'child';
+//    ul[0].appendChild(child);
+//    ul[0].removeChild(hello);
+//    console.log(hello.parentElement);
+   var cNodes = ul[0].childNodes;
+   for(var i=0; i<cNodes.length; i++){
+       if(cNodes[i].nodeType === 1){
+           console.log(cNodes[i]);
+       }
+   }
+
+</script>
+</body>
+</html>

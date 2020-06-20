@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>写一个遍历数组和对象的函数</title>
+</head>
+<body>
+    <script>
+
+        var arr = new Array(1,2,3);
+        var obj = {'a':1,'b':2};
+
+        function Iterator(obj) {
+            if(obj instanceof Array){//不要有括号
+//            if(Array.isArray(obj)){
+                obj.forEach(function (item) {
+                    console.log(item);
+                })
+            }else{
+                Object.keys(obj).forEach(function (item) {
+                    console.log(item);
+                })
+            }
+        }
+
+        Iterator(arr);
+        Iterator(obj);
+    </script>
+</body>
+</html>

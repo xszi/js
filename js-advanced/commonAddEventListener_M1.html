@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>编写一个通用的事件监听函数</title>
+</head>
+<body>
+	<div id="d1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</div>
+	<script>
+		var d1 = document.getElementById('d1');
+
+		function bindEvent(elem, type, selector, fn){
+			if(fn == null){
+				fn = selector;
+				selector = null;
+			}	
+			elem.addEventListener(type, function(e){
+				var target;
+				if(selector){
+					target = e.target;
+					if(target.matches(selector)){
+						fn.call(target, e);
+					}
+				}else {
+					fn(e);
+				}
+			})
+		}
+
+		bindEvent(d1, 'click', 'li', function(){console.log('click')});
+	</script>
+</body>
+</html>

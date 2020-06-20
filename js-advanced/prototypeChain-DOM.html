@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>写一个封装DOM查询的例子</title>
+</head>
+<body>
+	<div id='d1'>hello world</div>
+	<script>
+		function Elem (id) {
+			this.elem = document.getElementById(id);
+		}
+
+		Elem.prototype.html = function (val) {
+			var elem = this.elem;
+			elem.innerHTML = val;
+		}
+
+		Elem.prototype.on = function (type, fn) {
+			var elem = this.elem;
+			elem.addEventListener(type, fn);
+			return this;
+		}
+
+		var element = new Elem('d1');
+		element.html('bye world');
+		element.on('click',function(){
+			alert('click');
+		}).html('haha world');
+	</script>
+</body>
+</html>

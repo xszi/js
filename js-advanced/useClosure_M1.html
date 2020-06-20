@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>闭包在实际开发中的使用</title>
+</head>
+<body>
+	<script>
+		//主要用于封装变量，收敛权限
+		function isFirstLoaded(){
+			var _list = [];
+			return function(item){
+				if(_list.indexOf(item) >= 0){
+					return false;
+				}else{
+					_list.push(item);
+					return true;
+				}
+			}
+		}
+
+		var firstLoaded = isFirstLoaded();
+		console.log(firstLoaded(100));
+		console.log(firstLoaded(100));
+		console.log(firstLoaded(200));
+
+	</script>
+</body>
+</html>

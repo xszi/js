@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>通用事件的绑定</title>
+</head>
+<body>
+	<div id="dd">
+		<div id="d1">
+			<li id="dq">取消</li>
+			<li>确定</li>
+		</div>
+		<div id="d2">
+			<li>确定</li>
+			<li>确定</li>
+			<li>确定</li>
+			<li>确定</li>
+		</div>
+	</div>
+</body>
+<script>
+	var dd = document.getElementById('dd');
+	var dq = document.getElementById('dq');
+	// dd.addEventListener('click',function(){
+	// 	console.log('确定');
+	// })
+	// dq.addEventListener('click',function(e){
+	// 	e.stopPropagation();
+	// 	console.log('取消');
+	// })
+	bindEvent(dd, 'click', function(){
+		console.log('确定');
+	})
+	bindEvent(dq, 'click', function(e){
+		e.stopPropagation();
+		console.log('取消');
+	})
+	function bindEvent(elem, type, fn){
+		elem.addEventListener(type, fn);
+	}
+
+	//扩展是再加一个selector参数，指定点击哪种元素
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易日历制作</title>
+    <style>
+        li{
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            background-color: coral;
+            float: left;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<label for="theme">Select Month:</label>
+<select id="theme">
+    <option value="January">January</option>
+    <option value="February">February</option>
+    <option value="March">March</option>
+    <option value="April">April</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="August">August</option>
+    <option value="September">September</option>
+    <option value="October">October</option>
+    <option value="November">November</option>
+    <option value="December">December</option>
+</select>
+
+<ul>
+    <h1></h1>
+</ul>
+<script>
+
+    var select = document.querySelector('select');
+    var list = document.querySelector('ul');
+    var h1 = document.querySelector('h1');
+
+    select.onchange = function() {
+        var choice = select.value;
+        var days=31;
+        if(choice=='February'){
+            days=28;
+        }else if(choice=='April'||choice=='June'||choice=='September'||choice=='November'){
+            days=30;
+        }
+        createCalendar(days, choice);
+    }
+    function createCalendar(days, choice) {
+        list.innerHTML = '';
+        h1.textContent = choice;
+        for (var i = 1; i <= days; i++) {
+            var listItem = document.createElement('li');
+            listItem.textContent = i;
+            list.appendChild(listItem);
+        }
+    }
+    createCalendar(31,'January');
+
+</script>
+</body>
+</html>

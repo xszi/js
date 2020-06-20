@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建10个a标签，点击的时候弹出来对于的序号</title>
+</head>
+<body>
+<script>
+    //作用域的考察，自由变量的使用
+    // for(var i=0;i<10;i++){
+    //     (function (i) {
+    //         var a = document.createElement('a');
+    //         a.innerHTML = i + '<br>';
+    //         a.addEventListener('click',function (e) {
+    //             e.preventDefault();
+    //             alert(i);
+    //         })
+    //         document.body.appendChild(a);
+    //     })(i);
+    // }
+
+    for(let i=0;i<10;i++){
+        var a = document.createElement('a');
+        a.innerHTML = i + '<br>';
+        a.addEventListener('click',function(e){
+            // e.preventDefault();
+            alert(i);
+        })
+        document.body.appendChild(a);
+    }
+</script>
+</body>
+</html>

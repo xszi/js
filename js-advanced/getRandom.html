@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取相同长度的随机数</title>
+</head>
+<body>
+<script>
+    var random = Math.random()*10000000000;
+    random = Math.floor(random);
+    random = random + '000000000'
+    console.log(random.slice(0,10));
+</script>
+</body>
+</html>

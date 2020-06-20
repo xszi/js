@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编写一个通用的事件监听函数</title>
+</head>
+<body>
+    <div id="dd">
+        <div>
+            <li id="d1">确定</li>
+            <li>取消</li>
+        </div>
+        <div>
+            <li>取消</li>
+            <li>取消</li>
+            <li>取消</li>
+            <li>取消</li>
+        </div>
+    </div>
+<script>
+    var dd = document.getElementById('dd');
+    var d1 = document.getElementById('d1');
+//    function bindEvent(elem,type, fn) {
+//        elem.addEventListener(type, fn)
+//    }
+//
+//    bindEvent(dd, 'click', function () {
+//        console.log('取消');
+//    });
+//    bindEvent(d1, 'click', function (e) {
+//        e.stopPropagation();//阻止默认冒泡
+//        console.log('确定')
+//    });
+
+
+    function bindEvent1(elem, type, selector, fn) {
+        if(fn == null){
+            fn = selector;
+            selector = null;
+        }
+        elem.addEventListener(type, function (e) {
+            var target;
+            if(selector){
+                target = e.target;
+                if(target.matches(selector)){
+                    fn.call(target, e);
+                }
+            }else {
+                fn(e);
+            }
+        })
+    }
+
+    //使用代理
+    bindEvent1(dd, 'click', 'li', function (e) {
+        console.log(this.innerHTML)
+    })
+
+</script>
+</body>
+</html>

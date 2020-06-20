@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var a = 100;
+    function F1() {
+        var b = 200;
+        function F2() {
+            var c = 300;
+            console.log(a)//a是自由变量
+            console.log(b)//b是自由变量
+            console.log(c)
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链的例子--封装DOM查询</title>
+</head>
+<body>
+<script>
+//    function Dog() {
+//        this.name = 'hashiqi'
+//        this.bark = function () {
+//            console.log('bark');
+//        }
+//    }
+//
+//    function Animal() {
+//        this.eat = function () {
+//            console.log('eat');
+//        }
+//    }
+//
+//    //原型链继承
+//    Dog.prototype = new Animal();
+//
+//    var hashiqi = new Dog();
+//    hashiqi.eat();
+
+   //改变DOM中的数据
+
+    //构造函数
+    function Elem(id) {
+        this.elem = document.getElementById(id);
+    }
+
+    Elem.prototype.setHtml = function (val) {
+        var elem = this.elem;
+        elem.innerHTML = val;
+    }
+
+    Elem.prototype.on = function (type, fn) {
+        var elem = this.elem;
+        elem.addEventListener(type, fn);
+        return this
+    }
+
+    var divElem = new Elem('g_mymusic');
+    divElem.setHtml('hello world');
+    divElem.on('click',function () {
+        alert('haha')
+    }).setHtml('bye world')
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>数组去重</title>
+</head>
+<body>
+	<script>
+		var arr = [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
+		function NoRepeat(arr){
+			var arrRes = [];
+			var flag = true;
+			for(var i=0;i<arr.length;i++){
+				if(arrRes.indexOf(arr[i]) === -1){
+					if(arr[i]!=arr[i]){//排除NaN的影响
+						if(flag){
+							arrRes.push(arr[i]);
+							flag = false;
+						}
+					}else{
+						arrRes.push(arr[i]);
+					}
+				}
+			}
+			return arrRes;
+		}
+
+		console.log(NoRepeat(arr));
+	</script>
+</body>
+</html>

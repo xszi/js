@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call,apply,bind的用法</title>
+</head>
+<body>
+
+<script>
+    function fn1(name, age) {
+        console.log(name);
+        console.log(this);
+    }
+
+    fn1('zhangsan', '26');
+
+    //call最常见
+    fn1.call({x:100},'zhangsan', '26');
+    fn1.apply({x:100},['zhangsan', '26']);
+
+    var fn2 = function (name, age) {
+        console.log(name);
+        console.log(this);
+        return this;
+    }.bind({y:200})
+
+    fn2('zhangsan', '26');
+</script>
+</body>
+</html>

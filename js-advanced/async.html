@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>举一个同步和异步的例子</title>
+</head>
+<body>
+	<script>
+		//同步
+		// console.log('hello world');
+		// alert('haha');
+		// console.log('bye world');
+
+		//异步
+		console.log(100);
+		setTimeout(function(){
+			console.log(200)
+		}, 1000);
+		console.log(300);
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+//        function F1() {
+//            var a = 100;
+//            return function () {
+//                //自由变量，本作用域没有，寻找定义时父级作用域的值
+//                console.log(a);
+//            }
+//        }
+//        var a = 200;//无效
+//        var F2 = F1();
+//        F2();
+
+        function F1() {
+            var a = 300;
+            return function () {
+                //自由变量，本作用域没有，寻找定义时父级作用域的值
+                console.log(a);
+            }
+        }
+
+        var f1 = F1();
+        function F2(fn) {
+            var a = 100;
+            fn();
+        }
+        F2(f1);
+        //包含闭包的函数执行完毕后，其活动对象不会被销毁，因为匿名函数的作用域链还在引用这个活动对象
+//this要在执行时才能确认值，定义时无法确认
+//
+var name1 = "The Window";
+var object1 = {
+    name : "My Object",
+    getNameFunc1 : function(){
+        return function(){
+            console.log("haha"+this);
+            return this.name;
+        };
+    }
+};
+console.log(object1.getNameFunc1()());//The window
+
+var name = "The Window";
+var object = {
+    name : "My Object",
+    getNameFunc : function(){
+        var that = this
+        return function(){
+            console.log("haha"+that);
+            return that.name;
+        };
+    }
+};
+console.log(object.getNameFunc()());//My Object
+    </script>
+</body>
+</html>

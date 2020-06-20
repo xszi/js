@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>attr和property的区别</title>
+</head>
+<body>
+	<div id="d1">hello world</div>
+	<script>
+		// property是DOM中的属性，是JavaScript里的对象；
+		// attribute是HTML标签上的特性，它的值只能够是字符串,可自定义；
+		var d1 = document.getElementById('d1');
+
+		//property---js对象的一个属性
+		// d1.className = 'abc'
+
+		//标签里面
+		d1.setAttribute('class', 'c1');//
+		d1.setAttribute('class1', 'c2');//
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+<script>
+    var add_btn=document.getElementById("add-btn");
+    var minus_btn=document.getElementById("minus-btn");
+    var times_btn=document.getElementById("times-btn");
+    var divide_btn=document.getElementById("divide-btn");
+    add_btn.onclick=function () {
+        var num1=document.getElementById("first-number").value;
+        var num2=document.getElementById("second-number").value;
+        document.getElementById("result").innerHTML=Number(num1)+Number(num2);
+    }
+    minus_btn.onclick=function () {
+        var num1=document.getElementById("first-number").value;
+        var num2=document.getElementById("second-number").value;
+        document.getElementById("result").innerHTML=Number(num1)-Number(num2);
+    }
+    times_btn.onclick=function () {
+        var num1=document.getElementById("first-number").value;
+        var num2=document.getElementById("second-number").value;
+        document.getElementById("result").innerHTML=Number(num1)*Number(num2);
+    }
+    divide_btn.onclick=function () {
+        var num1=document.getElementById("first-number").value;
+        var num2=document.getElementById("second-number").value;
+        document.getElementById("result").innerHTML=Number(num1)/Number(num2);
+    }
+</script>
+</body>
+</html>
+
+<!--
+三个问题：
+1：必须是先点击之后才能去获取值，也就是说值的获取要放在点击触发函数里面；
+2：这样有两行重复代码，可以优化？；
+3：要细心，不能就是在给自己挖坑。
+
+
+-->

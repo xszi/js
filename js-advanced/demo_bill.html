@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收银账单</title>
+</head>
+
+<body>
+<div class="output">
+    <ul></ul>
+    <p></p>
+</div>
+
+<script>
+//    var list = document.querySelector('.output ul');
+//    list.innerHTML = '';
+//    var cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+//    for(var i = 0; i <cities.length; i++) {
+//    var input = cities[i];
+//    // write your code just below here
+//
+//    var result = input.toLowerCase();
+//    var firstChar=result.slice(0,1);
+//    //一个问题:result需要重新覆盖
+//    result=result.replace(result[0],firstChar.toUpperCase());
+//    var listItem = document.createElement('li');
+//    listItem.textContent = result;
+//    list.appendChild(listItem);
+//    }
+
+
+var list = document.querySelector('.output ul');
+var totalBox = document.querySelector('.output p');
+var total = 0;
+list.innerHTML = '';
+totalBox.textContent = '';
+
+var products = ['Underpants:6.99',
+    'Socks:5.99',
+    'T-shirt:14.99',
+    'Trousers:31.99',
+    'Shoes:23.99'];
+
+for(var i = 0; i < products.length; i++) {
+    var subArray = products[i].split(':');
+    var name = subArray[0];
+    var price = Number(subArray[1]);
+    total += price;
+    itemText = name + ' — $' + price;
+
+    var listItem = document.createElement('li');
+    listItem.textContent = itemText;
+    list.appendChild(listItem);
+}
+
+totalBox.textContent = 'Total: $' + total.toFixed(2);
+
+</script>
+</body>
+</html>

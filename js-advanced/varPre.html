@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>变量提前/函数声明提前</title>
+</head>
+<body>
+<script>
+	function Foo(){
+		num = 10;//变量提前
+		console.log(num);
+		// var num;//没有这一行也是可以的
+	}
+	Foo();
+
+	// Foo();//报错，函数表达式
+	// var Foo = function(){
+	// 	console.log('hello world');
+	// }
+
+	// Foo();//不报错，函数声明
+	// function Foo(){
+	// 	console.log('hello world');
+	// }
+</script>
+</body>
+</html>

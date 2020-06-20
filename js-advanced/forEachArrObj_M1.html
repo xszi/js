@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>写一个能遍历对象和数组的通用forEach函数</title>
+</head>
+<body>
+	<script>
+		var obj1 = [1,2,3];
+		var obj2 = {
+			"a": 1,
+			"b": 2
+		}
+		function Iterater(obj){
+			if(obj instanceof Array){
+				obj.forEach(function(item){
+					console.log(item);
+				})
+			}else{
+				Object.keys(obj).forEach(function(item){
+					console.log(item);
+				})
+			}
+		}
+
+		Iterater(obj1);
+		Iterater(obj2);
+	</script>
+</body>
+</html>

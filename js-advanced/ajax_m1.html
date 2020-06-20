@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>ajax的使用</title>
+</head>
+<body>
+<script>
+	$.ajax({
+		url: '',
+		type: '',
+		dataType: 'json',
+		data: {},
+		success: function(){},
+		error: function(){}
+	})
+
+	var Ajax = {
+		get: function(url, fn){
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', url, true);
+			xhr.onreadystatechange = function(){
+				if(readyState === 4 && xhr.status === 200 || xhr.status === 304){
+					fn.call(this, xhr.responseText);
+				}
+			}
+			xhr.send();
+		},
+		  // datat应为'a=a1&b=b1'这种字符串格式，在jq里如果data为对象会自动将对象转成这种字符串格式
+		post: function(url, data, fn){
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', url, true);
+			xhr.setRequestHeader('content-Type', 'application//x-www-form-urlencoded')
+			xhr.onreadystatechange = function(){
+				if(readyState === 4 && xhr.status === 200 || xhr.status === 304){
+					fn.call(this,xhr.responseText);
+				}
+			}
+			xhr.send(data);
+		}
+	}
+	
+	//0-（未初始化）还没有调用send（）方法
+    //1-（载入）已调用send（）方法，正在发送请求
+    //2-（载入完成）send（）方法执行完成，已经接收到全部响应内容
+    //3-（交互）正在解析响应内容
+    //4-（完成）响应内容解析完成，可以在客户端调用了
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包在实际开发中的使用</title>
+</head>
+<body>
+
+<script>
+//    function isFirstLoaded(item) {
+//        var _list = [];
+//        if(_list.indexOf(item)>=0){
+//            return false;
+//        }else{
+//            _list.push(item);
+//            return true;
+//        }
+//    }
+
+
+//    console.log(isFirstLoaded(100));
+//    console.log(isFirstLoaded(100));//函数执行之后_list就被垃圾回收机制回收了，所以要使用的闭包防止其释放
+//    console.log(isFirstLoaded(200));
+
+    function isFirstLoaded() {
+        var _list = [];
+
+        return function (item) {
+            if(_list.indexOf(item)>=0){
+                return false;
+            }else{
+                _list.push(item);
+                return true;
+            }
+        }
+    }
+
+    var firstLoad = isFirstLoaded();
+    console.log(firstLoad(100));
+    console.log(firstLoad(100));
+    console.log(firstLoad(200));
+
+</script>
+</body>
+</html>
